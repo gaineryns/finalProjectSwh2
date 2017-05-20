@@ -1,10 +1,18 @@
 package com.learn2crack.Products;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -13,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.learn2crack.MainActivity;
 import com.learn2crack.R;
 
 import org.json.JSONArray;
@@ -23,6 +32,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Inventaire extends AppCompatActivity {
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
 
     private static final String URI_DATA = "https://randomuser.me/api/?results=10";   //"https://www.internetfaq.net/superheroes.php";
     private RecyclerView recyclerView1;
@@ -45,6 +56,11 @@ public class Inventaire extends AppCompatActivity {
 
         loadRecyclerViewData();
     }
+
+
+
+
+
 
     private void loadRecyclerViewData(){
         final ProgressDialog progressDialog = new ProgressDialog(this);

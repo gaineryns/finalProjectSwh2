@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -7,26 +8,31 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#ffe8e8"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="3dp"
+        android:layout_margin="5dp"
+        >
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="@dimen/activity_horizontal_margin">
 
             <TextView
                 android:id="@+id/textviewhead"
-                android:text="Heading"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Heading"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
             <TextView
                 android:id="@+id/textViewDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Description"/>
+                android:text="Description" />
 
         </LinearLayout>
 

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Learn2Crack</string>
+    <string name="open">Open</string>
+    <string name="close">Open</string>
+    <string name="title_activity_menu">menu</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
