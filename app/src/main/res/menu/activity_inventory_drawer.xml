@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_inventory"
+            android:icon="@mipmap/ic_widgets_black_24dp"
+            android:title="Inventory" />
+        <item
+            android:id="@+id/menu_commande"
+            android:icon="@mipmap/ic_shopping_basket_black_24dp"
+            android:title="Commandes" />
+        <item
+            android:id="@+id/menu_range"
+            android:icon="@mipmap/ic_input_black_24dp"
+            android:title="Range" />
+        <item
+            android:id="@+id/menu_logout"
+            android:icon="@mipmap/ic_eject_black_24dp"
+            android:title="Logout" />
+    </group>
+
+
+
+</menu>

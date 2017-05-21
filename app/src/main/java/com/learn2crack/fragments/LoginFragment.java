@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.learn2crack.InventoryActivity;
 import com.learn2crack.Products.Inventaire;
 import com.learn2crack.ProfileActivity;
 import com.learn2crack.R;
@@ -144,8 +145,9 @@ public class LoginFragment extends Fragment {
         mEtPassword.setText(null);
 
         /*Intent intent = new Intent(getActivity(), ProfileActivity.class);*/
-        Intent intent = new Intent(getActivity(), Inventaire.class);
+        Intent intent = new Intent(getActivity(), InventoryActivity.class);
         startActivity(intent);
+
 
     }
 
