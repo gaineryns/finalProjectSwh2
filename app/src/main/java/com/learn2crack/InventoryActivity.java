@@ -3,7 +3,10 @@ package com.learn2crack;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -16,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,15 +28,26 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.learn2crack.Products.ListItem;
 import com.learn2crack.Products.MyAdapter;
+import com.learn2crack.model.User;
+import com.learn2crack.network.NetworkUtil;
+import com.learn2crack.utils.Constants;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.adapter.rxjava.HttpException;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+import rx.subscriptions.CompositeSubscription;
 
 public class InventoryActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,6 +60,17 @@ public class InventoryActivity extends AppCompatActivity
 
     private List<ListItem> listItems;
 
+    /*  --------------- données profil ----------------*/
+    private SharedPreferences mSharedPreferences;
+
+    private TextView mTvName;
+    private TextView mTvEmail;
+
+    private String mToken;
+    private String mEmail;
+
+    private CompositeSubscription mSubscriptions;
+    /*  --------------------------------------------       */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +79,12 @@ public class InventoryActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+/* init data profil */
+        mSubscriptions = new CompositeSubscription();
 
+        mTvName = (TextView) findViewById(R.id.tv_name);
+        mTvEmail = (TextView) findViewById(R.id.tv_email);
+/* end data profil */
         recyclerView1 = (RecyclerView)findViewById(R.id.recyclerView1);
         recyclerView1.setHasFixedSize(true);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
@@ -82,7 +113,8 @@ public class InventoryActivity extends AppCompatActivity
             }
         });
 
-
+        //initSharedPreferences();
+        //loadProfile();
 
     }
 
@@ -193,7 +225,8 @@ public class InventoryActivity extends AppCompatActivity
 
         } else if (id == R.id.menu_logout) {
 
-            Toast.makeText(this ,"Logout ", Toast.LENGTH_SHORT).show();
+            intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
 
         }
 
@@ -201,4 +234,7 @@ public class InventoryActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 }

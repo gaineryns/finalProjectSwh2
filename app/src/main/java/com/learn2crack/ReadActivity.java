@@ -44,6 +44,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.learn2crack.Products.ListItem;
+import com.learn2crack.Products.MySingleton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
@@ -201,9 +215,48 @@ public class ReadActivity extends AppCompatActivity {
                 for (int i = 1; i < technology.length; i++) {
                     sb.append(", " + technology[i].toString().split("\\.")[3]);
                 }
+
+                /*test api get*/
+                String json_url = "https://randomuser.me/api/?results=1";
+
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, json_url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+
+                                try {
+                                    JSONObject jsonObject = new JSONObject(response);
+                                    JSONArray array = jsonObject.getJSONArray("results");
+
+                                    for(int i = 0; i < array.length(); i++){
+
+                                        JSONObject o = array.getJSONObject(i);
+
+                                        mTypeTV.setText(o.getJSONObject("name").getString("first"));
+                                        mSizeTV.setText(o.getJSONObject("name").getString("last"));
+
+
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+                RequestQueue requestQueue = Volley.newRequestQueue(ReadActivity.this);
+                requestQueue.add(stringRequest);
+                /*test api get*/
                 mContentTV.setText("   " + result);
-                mTypeTV.setText("   " + type);
-                mTechTV.setText("   " + sb.toString());
+
+                //mTypeTV.setText("   " + type);
+                //mTechTV.setText("   " + sb.toString());
                 mSizeTV.setText("   " + size + " Bytes");
                 mIdTV.setText("   " + bytesToHex(ID_tag));
             } else {

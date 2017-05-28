@@ -1,5 +1,6 @@
 package com.learn2crack;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
@@ -79,6 +80,8 @@ public class ProfileActivity extends AppCompatActivity implements ChangePassword
         editor.putString(Constants.EMAIL,"");
         editor.putString(Constants.TOKEN,"");
         editor.apply();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
         finish();
     }
 
