@@ -1,6 +1,11 @@
 package com.learn2crack.Products;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.learn2crack.InventoryActivity;
+import com.learn2crack.MainActivity;
+import com.learn2crack.ProfileActivity;
 import com.learn2crack.R;
+import com.learn2crack.fragments.productFragment;
 
 import java.util.List;
 
@@ -67,6 +76,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         @Override
         public void onClick(View view) {
+
+
+            view.getContext().startActivity(new Intent(view.getContext(), ProfileActivity.class));
             Toast.makeText(view.getContext(), "id = " + textViewDesc.getText(), Toast.LENGTH_SHORT).show();
         }
     }

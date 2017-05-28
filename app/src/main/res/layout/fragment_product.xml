@@ -1,0 +1,115 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.learn2crack.fragments.productFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="241dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="241dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Intitulé produit: " />
+
+            <TextView
+                android:id="@+id/tIntitule"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="intitulé" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Description produit:" />
+
+            <TextView
+                android:id="@+id/tDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="desc" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Référence produit:" />
+
+            <TextView
+                android:id="@+id/tRef"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ref" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Emplacement:" />
+
+            <TextView
+                android:id="@+id/tEmpl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="empl" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Quantité:" />
+
+            <TextView
+                android:id="@+id/tQte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="quan" />
+        </TableRow>
+
+    </TableLayout>
+
+</FrameLayout>
