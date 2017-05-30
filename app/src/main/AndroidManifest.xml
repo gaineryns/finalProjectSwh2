@@ -22,7 +22,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask"
@@ -42,38 +41,39 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ProfileActivity"
             android:theme="@style/AppTheme.Profile" />
         <activity android:name=".Products.Inventaire" />
-
         <activity
             android:name=".InventoryActivity"
             android:label="@string/title_activity_inventory"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".ReadActivity"
             android:label="@string/title_activity_read"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
-                <data android:mimeType="text/plain"/>
-                <data android:mimeType="application/[package name]"/>
+
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="application/[package name]" />
             </intent-filter>
+
             <meta-data
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter" />
 
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-                <data android:mimeType="application/[package name]"/>
-            </intent-filter>
 
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="application/[package name]" />
+            </intent-filter>
         </activity>
+        <activity android:name=".product_details"></activity>
     </application>
 
 </manifest>
